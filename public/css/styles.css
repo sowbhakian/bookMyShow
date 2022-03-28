@@ -35,5 +35,26 @@ body {
 
 .booking {
     padding: 2% 20%;
-    margin-bottom: 5%;
+}
+
+.cardTheatre {
+    padding: 2% 2%;
+}
+
+.carWhole {
+    margin-top: 2%;
+}
+
+.card {
+    min-height: 100vh;
+}
+
+.successCon {
+    margin: 5% 5%;
+}
+
+.successTick {
+    color: rgb(0, 0, 0);
+    padding: 2% 2%;
+    border-radius: 2rem;
 }

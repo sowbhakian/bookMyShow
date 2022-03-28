@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital</title>
+    <title>BookMyShow</title>
 
 
     <!-- icons links -->
@@ -58,198 +58,51 @@
     <section id="Nav-bar-section">
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark  navbar-whole-class ">
             <div class="container">
-                <p class="navbar-brand text-warning"> BookMyShow</p>
-                <!-- makes the text right  -->
-                <div class="w-80 text-right ">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <!-- phone view - right  -->
-                    <div class="navbar-nav mx-auto text-right">
-                        <a href="#" class="nav-link nav-link-ltr textinnav text-warning">Home</a>
-
-                        <a href="/contact" class="nav-link nav-link-ltr textinnav text-warning">Contact</a>
-                    </div>
-                    <a href="#login">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCookie1">Login</button>
-                    </a>
-
-                    <!-- <i class="fas fa-user-tie"></i>sdfsdf -->
+                <div class="navbar-nav mx-auto text-right">
+                    <a href="#" class="nav-link nav-link-ltr textinnav text-warning fa-3x">BookMyShow</a>
                 </div>
             </div>
         </nav>
     </section>
 
-    <!--Modal: Admin or Teacher-->
-    <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
-        <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
-            <!--Content-->
-            <div class="modal-content ">
-                <!--Body-->
-                <div class="modal-body LoginOptionBody">
-                    <div class="row d-flex text-center">
-
-                        <p class="pt-3 pr-2">Please Choose Your Login?
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#teacherLogin">
-                            <i class="fas fa-book ml-1"></i>TEACHER</button>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adminLogin">
-                            <i class="fas fa-book ml-1"></i>ADMIN</button>
-
-
-                            <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">CANCEL</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--/.Content-->
-        </div>
-    </div>
-
-    <!--Modal: Teacher Login-->
-    <div class="modal fade" id="teacherLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog cascading-modal" role="document">
-
-            <!--Content-->
-            <div class="modal-content">
-
-                <!--Header-->
-                <div class="modal-header light-blue darken-3 white-text">
-                    <h4 class="title"><i class="fas fa-users"></i> Staff Login</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-      aria-hidden="true">&times;</span></button>
-                </div>
-                <form action="/staffsign" method="post">
-                    <!--Body-->
-                    <div class="modal-body mb-0 text-center">
-
-                        <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
-                            <input type="text" class="login__input" placeholder="User name" name="userName">
-                        </div>
-                        <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
-                            <input type="password" class="login__input" placeholder="User name" name="Password">
-                        </div>
-                        <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
-
-                            <button type="submit" class="btn btn-success">Login</button>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-            <!--/.Content-->
-
-        </div>
-    </div>
-
-    <!--Modal: Admin Login-->
-    <div class="modal fade" id="adminLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog cascading-modal" role="document">
-
-            <!--Content-->
-            <div class="modal-content">
-
-                <!--Header-->
-                <div class="modal-header light-blue darken-3 white-text">
-                    <h4 class="title"><i class="fas fa-users"></i> Admin Login</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                 aria-hidden="true">&times;</span></button>
-                </div>
-                <form action="/adminsign" method="post">
-                    <!--Body-->
-                    <div class="modal-body  text-center">
-                        <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
-                            <input type="text" class="login__input" placeholder="Admin User name" name="userId">
-                        </div>
-                        <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
-                            <input type="password" class="login__input" placeholder="Password" name="Password">
-                        </div>
-                        <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
-
-                            <button type="submit" class="btn btn-success">Go</button>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-            <!--/.Content-->
-
-        </div>
-    </div>
-
 
 
     <!-- display Threater -->
     <section>
+        <div class="row pb-5">
+            <%c=1%>
+                <% theatres.forEach((e)=>{ %>
+                    <div class="col-lg-3 col-md-6 pt-5 d-flex align-items-stretch text-center">
+                        <div class="card ">
+                            <img src="../pictures/<%=c++%>.jpg" height="300">
+                            <h1 class="text-center pt-5">
+                                <%=e.theatreName%>
+                            </h1>
+                            <div class="card-body cardhead">
+                                <h1 class="text-center pt-5">Location:
+                                    <p class="text-warning">
+                                        <%=e.location%>
+                                    </p>
+                                </h1>
 
-        <div class="row">
-
-            <% threater.forEach((e)=>{ %>
-                <div class="col-lg-4 indidiv">
-                    <div class="card">
-                        <h1 class="text-center">
-                            <%=e.theatreName%>
-                        </h1>
-                        <div class="card-body cardhead">
-                            <h4 class="text-center">Movie Name
-                                <p class="text-warning">
-                                    <%=e.movieName%>
-                                </p>
-                            </h4>
-                            <h4 class="text-center">certification
-                                <p class="text-warning">
-                                    <%=e.certification%>
-                                </p>
-                            </h4>
-                            <h4 class="text-center">Language
-                                <p class="text-warning">
-                                    <%=e.Lang%>
-                                </p>
-                            </h4>
-                            <h4 class="text-center">Show Time1
-                                <p class="text-warning">
-                                    <%=e.time1%>
-                                </p>
-                            </h4>
-                            <h4 class="text-center">Show Time2
-                                <p class="text-warning">
-                                    <%=e.time2%>
-                                </p>
-                            </h4>
-                            <h4 class="text-center">Show Time3
-                                <p class="text-warning">
-                                    <%=e.time3%>
-                                </p>
-                            </h4>
-
-                            <div class="bookbtn">
-                                <form action="/seateAvaible" method="post">
-                                    <input type="hidden" name="theatername" value="<%=e.theatreName%>">
-                                    <input type="hidden" name="movieName" value="<%=e.movieName%>">
-                                    <input type="hidden" name="certification" value="<%=e.certification%>">
-                                    <input type="hidden" name="Lang" value="<%=e.Lang%>">
-                                    <input type="hidden" name="time1" value="<%=e.time1%>">
-                                    <input type="hidden" name="time2" value="<%=e.time2%>">
-                                    <input type="hidden" name="time3" value="<%=e.time3%>">
-
-                                    <button type="submit" class="btn btn-primary">Book Ticket</button>
+                                <form action="/getShows" method="post">
+                                    <div class="text-center pt-5">
+                                        <input type="hidden" name="id" value="<%=e._id%>">
+                                        <button type="submit" class="btn btn-primary">View</button>
+                                    </div>
                                 </form>
                             </div>
-
-
-
                         </div>
                     </div>
-                </div>
-                <% })%>
+                    <% if(c>=5){%>
+                        <%c=1%>
+                            <%}%>
+                                <% }) %>
+
+
         </div>
+
+        <!-- Rotating card -->
 
     </section>
 

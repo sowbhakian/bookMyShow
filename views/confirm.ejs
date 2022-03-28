@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital</title>
+    <title>BookMyShow</title>
 
 
     <!-- icons links -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
+    <script src="https://kit.fontawesome.com/c0e4752029.js" crossorigin="anonymous"></script>
 
     <!-- google-font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,30 +37,60 @@
     <section id="Nav-bar-section">
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark  navbar-whole-class ">
             <div class="container">
-                <p class="navbar-brand text-warning"> BookMyShow</p>
-                <!-- makes the text right  -->
-                <div class="w-80 text-right ">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <!-- phone view - right  -->
-                    <div class="navbar-nav mx-auto text-right">
-                        <a href="#" class="nav-link nav-link-ltr textinnav text-warning">Home</a>
-                        <a href="/theaters" class="nav-link nav-link-ltr textinnav text-warning">Theaters</a>
-                        <a href="/contact" class="nav-link nav-link-ltr textinnav text-warning">Contact</a>
-                    </div>
-                    <a href="#login">
-                        <button type="button" class="btn btn-outline-light ">Login</button>
-                    </a>
-                    <!-- <i class="fas fa-user-tie"></i>sdfsdf -->
+                <div class="navbar-nav mx-auto text-right">
+                    <a href="#" class="nav-link nav-link-ltr textinnav text-warning fa-3x">BookMyShow</a>
                 </div>
             </div>
         </nav>
     </section>
 
 
+    <div class="border border-success animated tada mt-5 mb-5 pt-5 pb-5 text-center">
+        <div class="successCon">
+            <i class="fas fa-solid fa-check-double fa-5x text-success bg-dark successTick"></i>
+            <h3 class="text-success pt-4">
+                Booking Done Successfully!!
+            </h3>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-lg-12">
+            <h2 class="text-secondary">Name: <span class="text-dark"><%=ticket.name%></span></h2>
+        </div>
+        <div class="col-lg-12">
+            <h2 class="text-secondary">MovieName: <span class="text-dark"><%=ticket.movieName%></span></h2>
+        </div>
+        <div class="col-lg-12">
+            <h2 class="text-secondary">Certification: <span class="text-dark"><%=ticket.certification%></span></h2>
+        </div>
+        <div class="col-lg-12">
+            <h2 class="text-secondary">Language: <span class="text-dark"><%=ticket.language%></span></h2>
+        </div>
+        <div class="col-lg-12">
+            <h2 class="text-secondary">Timing: <span class="text-dark"><%=ticket.timing%></span></h2>
+        </div>
+        <div class="col-lg-12">
+            <h2 class="text-secondary">Cost: <span class="text-dark"><%=ticket.cost%></span></h2>
+        </div>
+        <div class="col-lg-12">
+            <h2 class="text-secondary">Theatre Name: <span class="text-dark"><%=ticket.theatreName%></span></h2>
+        </div>
+        <div class="col-lg-12">
+            <h2 class="text-secondary">Location: <span class="text-dark"><%=ticket.location%></span></h2>
+        </div>
+        <div class="col-lg-12">
+            <h2 class="text-secondary">No Of Tickets: <span class="text-dark"><%=ticket.noOfTickets%></span></h2>
+        </div>
+    </div>
+
+    <section>
+        <div class="pt-3 pb-3">
+            <div>
+                <i class="fas-solid fa-circle-check fa-4x"></i>
+            </div>
+        </div>
+    </section>
 
 
     <!-- jQuery -->
@@ -70,7 +99,6 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
     <!-- Bootstrap JS -->
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
-
 
 </body>
 

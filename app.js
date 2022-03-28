@@ -1,181 +1,176 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const _ = require('lodash');
-const { forEach } = require("lodash");
 const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"));
 
-con = true;
+con = false;
 
 // database Host
 let port = process.env.PORT || 9000;
-mongoose.connect("mongodb://localhost:27017/BookMyShow", { useNewUrlParser: true });
-
+mongoose.connect("mongodb+srv://sowbi:1234@cluster0.hdb8s.mongodb.net/bookMyShow?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 const theatreSchema = new mongoose.Schema({
     theatreName: String,
+    capacity: { type: Number, default: 50 },
+    location: String,
+    movie: String,
+    certification: String,
+    language: String,
+    cost: Number,
+    shows: [{ timing: String, ticketsBooked: { type: Number, default: 0 } }],
+})
+const Theatre = new mongoose.model("Theatre", theatreSchema);
+
+const ticketSchema = new mongoose.Schema({
+    name: String,
     movieName: String,
     certification: String,
-    Lang: String,
-    time1: String,
-    time2: String,
-    time3: String,
-    ticketAvaiable: { type: Number, default: 10 }
-})
-const theatre = mongoose.model("theatre", theatreSchema)
+    language: String,
+    timing: String,
+    cost: Number,
+    theatreName: String,
+    location: String,
+    noOfTickets: Number
+});
+const Ticket = new mongoose.model("Ticket", ticketSchema);
 
-// const ticketsSchema = new mongoose.Schema({
-//     Name: String,
-//     theatreName: String,
-//     movieName: String,
-//     timming: String,
-//     seatNo: Number,
-//     NoOfTickets: Number,
-//     cost: Number
-// })
-// const Bookingtickets = mongoose.model("Bookingtickets", ticketsSchema)
+const userSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    ticketsBooked: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Ticket'
+    }]
+});
+const User = mongoose.model("User", userSchema);
 
-const seateSchema = new mongoose.Schema({
-    threatername: String,
-    seatno: Number
-})
-const seate = mongoose.model("seate", seateSchema)
-
-
-
-if (!con) {
+if (con) {
 
     // list of threaters
-    var theatreadd = new theatre({
+    var theatre1 = new Theatre({
         theatreName: "Asskar Theatre",
-        movieName: "RRR",
+        location: "place1",
+        movie: "spider",
         certification: "A",
-        Lang: "English",
-        time1: "10.00am to 12.00pm",
-        time2: "2.00am to 4.00pm",
-        time3: "6.00am to 8.00pm",
-    })
-    theatreadd.save();
-    var theatreadd = new theatre({
+        language: "English",
+        cost: 100,
+        shows: [
+            { timing: "10:00am - 01:00pm" },
+            { timing: "02:00pm - 05:00pm" },
+            { timing: "06:00pm - 09:00pm" },
+        ]
+    });
+    theatre1.save();
+    var theatre2 = new Theatre({
         theatreName: "ARRS Theatre",
-        movieName: "asd",
+        location: "place2",
+        movie: "RRR",
         certification: "UA",
-        Lang: "Tamil",
-        time1: "10.00am to 12.00pm",
-        time2: "2.00am to 4.00pm",
-        time3: "6.00am to 8.00pm",
-    })
-    theatreadd.save();
-    var theatreadd = new theatre({
+        language: "Tamil",
+        cost: 150,
+        shows: [
+            { timing: "10:00am - 01:00pm" },
+            { timing: "02:00pm - 05:00pm" },
+            { timing: "06:00pm - 09:00pm" },
+        ]
+    });
+    theatre2.save();
+    var theatre3 = new Theatre({
         theatreName: "Multiplex Theatre",
-        movieName: "qwe",
+        location: "place3",
+        movie: "baahubali",
         certification: "U/A",
-        Lang: "Tamil",
-        time1: "10.00am to 12.00pm",
-        time2: "2.00am to 4.00pm",
-        time3: "6.00am to 8.00pm",
-    })
-    theatreadd.save();
-    var theatreadd = new theatre({
+        language: "Tamil",
+        cost: 80,
+        shows: [
+            { timing: "10:00am - 01:00pm" },
+            { timing: "02:00pm - 05:00pm" },
+            { timing: "06:00pm - 09:00pm" },
+        ]
+    });
+    theatre3.save();
+    var theatre4 = new Theatre({
         theatreName: "Imax Theatre",
-        movieName: "zxc",
+        location: "place4",
+        movie: "uncharted",
         certification: "s",
-        Lang: "English",
-        time1: "10.00am to 12.00pm",
-        time2: "2.00am to 4.00pm",
-        time3: "6.00am to 8.00pm",
+        language: "english",
+        cost: 90,
+        shows: [
+            { timing: "10:00am - 01:00pm" },
+            { timing: "02:00pm - 05:00pm" },
+            { timing: "06:00pm - 09:00pm" },
+        ]
     })
-    theatreadd.save();
+    theatre4.save();
     con = false;
 }
 
 // Home
 app.get("/", function(req, res) {
-
-    theatre.find({}, (err, output) => {
+    Theatre.find({}, { theatreName: 1, location: 1 }, (err, output) => {
         if (!err) {
-            // console.log(output);
-            res.render("index", { threater: output });
+            res.render("index", { theatres: output });
         }
-    })
-});
-app.get("/contact", function(req, res) {
-    res.render("contact");
+    });
 });
 
-// app.get("/seats", function(req, res) {
-
-//     res.render("seats");
-// });
-
-
-app.post("/seateAvaible", function(req, res) {
-    var theatername = req.body.theatername;
-    var movieName = req.body.movieName;
-    var certification = req.body.certification;
-    var Lang = req.body.Lang;
-    var time1 = req.body.time1;
-    var time2 = req.body.time2;
-    var time3 = req.body.time3;
-    var count;
-
-
-    theatre.find({}, (err, output) => {
+//Individual Theatre
+app.post("/getShows", function(req, res) {
+    Theatre.findOne({ _id: req.body.id }, (err, output) => {
         if (!err) {
-            output.forEach(e => {
-                // console.log(e.theatreName + "" + theatername);
-                if (e.theatreName == theatername) {
-                    // console.log("asd");
-                    count = e.ticketAvaiable;
-                    console.log(count);
-                }
+            res.render("shows", { Theatre: output });
+        }
+    });
+});
+
+app.post("/bookTicket", function(req, res) {
+
+    User.findOne({ email: req.body.email }, (err, foundUser) => {
+        Theatre.findOne({ _id: req.body.id }, (err, foundTheatre) => {
+            const newTicket = new Ticket({
+                name: req.body.name,
+                movieName: foundTheatre.movie,
+                theatreName: foundTheatre.theatreName,
+                certification: foundTheatre.certification,
+                language: foundTheatre.language,
+                timing: req.body.time,
+                cost: foundTheatre.cost,
+                location: foundTheatre.location,
+                noOfTickets: req.body.number
             });
-            // count = 10 - output.length;
-            res.render("seats", { theatername: theatername, movieName: movieName, certification: certification, Lang: Lang, time1: time1, time2: time2, time3: time3, count: count })
-        }
-    })
-
-});
-
-app.post("/bookingDone", function(req, res) {
-    var theatername = req.body.theatername;
-    var time = req.body.time;
-    var number = req.body.number;
-    var mail = req.body.mail;
-
-
-    theatre.find({ theatreName: theatername }, (err, output) => {
-        if (!err) {
-            console.log(output);
-            var count = 10 - (parseInt(output.length) + parseInt(number));
-            var conditions = { theatreName: theatername }
-            var update = { ticketAvaiable: count }
-
-            theatre.findOneAndUpdate(conditions, update, (err, out) => {
-                if (!err) {
-
-                    theatre.find({}, (err, output) => {
-                        if (!err) {
-                            console.log(output);
-                            res.redirect("/");
-                        }
-                    })
-
+            for (var i in foundTheatre.shows)
+                if (foundTheatre.shows[i].timing == req.body.time) {
+                    var c = parseInt(foundTheatre.shows[i].ticketsBooked);
+                    foundTheatre.shows[i].ticketsBooked = c + parseInt(req.body.number);
                 }
+                //Save the Theatre info
+            foundTheatre.save().then(() => {
+                //Save the ticket info
+                newTicket.save().then(() => {
+                    if (foundUser == null) {
+                        const newUser = new User({
+                            name: req.body.name,
+                            email: req.body.email,
+                            ticketsBooked: [newTicket]
+                        });
+                        // save the userdate
+                        newUser.save();
+                        res.render("confirm", { ticket: newTicket });
+                    } else {
+                        foundUser.ticketsBooked.push(newTicket);
+                        foundUser.save();
+                        res.render("confirm", { ticket: newTicket });
+                    }
+                });
             });
-        }
+        });
     })
-
-
 });
-
-
-
-
 
 app.listen(port, function() {
-    console.log("Server running in 9000")
+    console.log("Server running in " + port);
 });

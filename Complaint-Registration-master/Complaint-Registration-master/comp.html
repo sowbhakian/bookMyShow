@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote</title>
+
+    <!-- icons links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@700&display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+<body class="vote-body" onload="displayTime()">
+
+    <!-- Heading -->
+    <div class="container-fluid trans ">
+        <h3 class="vote-head"><i class="fas fa-landmark"></i> PB APARTMENT</h3>
+        <div class=" vote-headbox text-center ">
+            <div class="vote-box gra-img">
+                <h1 class="welcome-msg">Welcome Sowbhakian, Have a great day!</h1>
+                <h2>Enter your complaint down below!</h2>
+                <!-- Time-Date -->
+                <section class="setdate-div row">
+
+                    <div class=" col-lg-6">
+                        <h2 id="setdate">asda</h2>
+                    </div>
+
+                    <div class="settime-div col-lg-6">
+                        <h2 id="settime">asd </h2>
+                    </div>
+                </section>
+
+                <div class="vote-return">
+                    <a href="index.html">
+                        <button type="button" class="btn btn-lg btn-outline-light">Return Home <i class="fas fa-angle-double-right"></i></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container comp-regs-whole">
+        <h2 class="text-center">Compaint Registration</h2>
+        <div class="comp-regs border border-dark row">
+            <form class="col-lg-8">
+                <div class="comp-inv-cls">
+                    <label for="fname" class="label-txt">Date</label>
+                    <input type="date" class="form-control" id="fname">
+                </div>
+
+                <div class="comp-inv-cls">
+                    <label for="lname" class="label-txt">Block Number</label>
+                    <input type="number" class="form-control" id="lname">
+                </div>
+
+                <div class="comp-inv-cls">
+                    <label for="email" class="label-txt">Door Number</label>
+                    <input type="number" class="form-control" id="email">
+                </div>
+
+                <div class="comp-inv-cls">
+                    <label for="email" class="label-txt">Compaint Type</label>
+                    <select name="service" class="form-control">                    
+                        <option  value="">Select</option>
+                        <option values="Construction" class="form-control">construction</option>
+                        <option values="Electrician" class="form-control">Electrician</option>
+                        <option values="Plumber" class="form-control">Plumber</option>
+                    </select>
+                </div>
+
+                <div class="comp-inv-cls">
+                    <label for="message" class="label-txt">Complaint</label>
+                    <textarea rows="3" class="form-control" id="message"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success btn-outline-dark text-light comp-btn">Send message</button>
+            </form>
+
+        </div>
+    </div>
+    <!-- table -->
+    <section>
+
+        <div class="container">
+
+            <table class="table-cls">
+                <tr>
+                    <th></th>
+                    <th>DATE</th>
+                    <th>BLOCK NO.</th>
+                    <th>DOOR NO.</th>
+                    <th>SERVICE TYPE</th>
+                    <th>COMPLAINTS</th>
+                </tr>
+                <tr>
+                    <th>1.</th>
+                    <td>29/9/2021</td>
+                    <td>101</td>
+                    <td>19ES01</td>
+                    <td>Electrician</td>
+                    <td>The street light should be changed.</td>
+                </tr>
+
+                <tr>
+                    <th>2.</th>
+                    <td>30/9/2021</td>
+                    <td>114</td>
+                    <td>19ES21</td>
+                    <td>Plumber</td>
+                    <td>There is leakage water tap, so replacement should be done.</td>
+                </tr>
+
+            </table>
+        </div>
+    </section>
+
+    <!-- footer-section -->
+    <section id="footer-section " class="text-center">
+        <footer>
+            <p class="cpy-footer "> <i class="far fa-copyright "></i> 2021 Sowbhakian
+            </p>
+        </footer>
+    </section>
+
+
+    <!-- jQuery -->
+    <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+    <!-- Popper JS -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+    <!-- Bootstrap JS -->
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+
+    <script>
+        function secCall() {
+            setTimeout('displayTime()', 1000)
+        }
+
+        function displayTime() {
+
+            var today = new Date();
+            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+            document.getElementById("settime").innerHTML = "Time:  " + time;
+            document.getElementById("setdate").innerHTML = "Date:  " + date;
+            secCall()
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,425 @@
+body {
+    background-image: url(backfull.jpg);
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    height: 100vh;
+}
+
+@media (max-width: 500px) {
+    body {
+        background-image: url(backfull2.jpg);
+    }
+}
+
+
+/* nav bar */
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    margin-bottom: 2px;
+}
+
+.nav-link {
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    padding: 20px 0px;
+    margin: 0px 20px;
+    display: inline-block;
+    position: relative;
+    opacity: 0.75;
+}
+
+.nav-link::before {
+    transition: 300ms;
+    height: 5px;
+    content: "";
+    position: absolute;
+    background-color: white;
+    color: white;
+}
+
+.nav-link-ltr::before {
+    width: 0%;
+    bottom: 10px;
+}
+
+.nav-link-ltr:hover::before {
+    width: 60%;
+}
+
+#active-underline {
+    color: rgb(0, 255, 229);
+}
+
+#active-underline::before {
+    background-color: rgb(0, 255, 229);
+}
+
+.navbar-dark:hover .navbar-nav:hover .nav-link:hover {
+    color: rgb(255, 255, 255);
+}
+
+.navbar-dark .navbar-brand {
+    color: wheat;
+    font-family: 'PT Serif';
+}
+
+@media (max-width: 990px) {
+    .nav-link {
+        margin: 0 0;
+    }
+    .quotes {
+        padding: 3% 0;
+    }
+}
+
+.navbar-whole-class {
+    background-color: rgb(5, 108, 148);
+}
+
+
+/* home-Content */
+
+.wholeSection {
+    margin-top: 3%;
+    padding: 4% 2%;
+    background-color: rgba(103, 207, 221, 0.308);
+}
+
+.part1 {
+    background-color: rgba(0, 0, 0, 0.829);
+    padding: 3% 2%;
+    text-align: center;
+}
+
+.home-left-whole {
+    margin-top: 5%;
+}
+
+.home-head {
+    text-align: center;
+    font-weight: bolder;
+    text-decoration: underline;
+    color: bisque;
+    font-family: 'Crimson Text';
+}
+
+.home-para {
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(64, 224, 208);
+    padding: 2% 2%;
+    font-family: 'Crimson Text';
+}
+
+.carosel-head {
+    text-align: center;
+    color: antiquewhite;
+    font-family: 'Noto Serif';
+}
+
+@media (max-width: 990px) {
+    .carosel-head {
+        color: black;
+    }
+    .whole-carosel {
+        margin-top: 15%;
+    }
+    .whole-signup {
+        margin-top: 15%;
+    }
+}
+
+
+/* signup */
+
+.form-control {
+    background: transparent;
+}
+
+.form-control:hover {
+    background: transparent;
+}
+
+input {
+    color: black;
+}
+
+input::placeholder {
+    color: #f00;
+}
+
+.whole-signup {
+    padding: 3% 20%;
+    margin-top: 5%;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.486);
+    font-family: 'Kanit';
+}
+
+.label-txt {
+    font-weight: bolder;
+    font-size: larger;
+}
+
+
+/* complaint */
+
+.vote-body {
+    background-color: #ffffff;
+    background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+}
+
+.gra-img {
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+}
+
+.trans {
+    background-image: linear-gradient(to left top, #00b75f, #00b585, #00b1a3, #00abb6, #00a3be, #0095bd, #0086ba, #0076b4, #005ca6, #004195, #002681, #000268);
+}
+
+.vote-headbox {
+    padding: 0 3%;
+    padding-bottom: 3.5%;
+}
+
+.vote-head {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+    padding: 3% 0;
+}
+
+.vote-box {
+    margin: 2% 0;
+    padding: 5% 0;
+    box-shadow: -1px 0 8px rgb(0, 89, 255);
+    box-shadow: 5px 2px 20px whitesmoke;
+}
+
+.vote-box:hover {
+    box-shadow: 5px 5px 25px rgb(255, 255, 255);
+}
+
+.welcome-msg {
+    text-align: center;
+    font-family: 'Bree Serif';
+    font-weight: bold;
+    color: #000000;
+    margin: 2% 0;
+}
+
+.vote-return {
+    text-align: right;
+    margin-right: 5%;
+}
+
+@media screen and (max-width: 540px) {
+    .vote-status {
+        margin: 5% 0;
+    }
+    .text-votebox {
+        font-size: large;
+    }
+    .vote-head {
+        font-size: 2rem;
+    }
+    .vote-headbox {
+        margin-bottom: 10%;
+    }
+    .vote-box {
+        margin-bottom: 10%;
+    }
+}
+
+.vote-IC {
+    border-radius: 10rem;
+    background-color: #94949418;
+    padding: 8% 8%;
+}
+
+.vote-partyName {
+    font-family: 'Vollkorn';
+    font-weight: bolder;
+    font-size: 2.5rem;
+    color: #0055b6;
+}
+
+.voting-iconDiv {
+    margin-top: 5%;
+    padding: 3% 0;
+    margin-bottom: 10%;
+}
+
+.voting-title {
+    text-align: center;
+    margin-top: 5%;
+    color: #000268;
+    font-family: 'Alfa Slab One';
+}
+
+.vote-btn {
+    padding: 2% 15%;
+}
+
+.voteMsgLt {
+    margin-left: 5%;
+    text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    .vote-IC {
+        font-size: 500%;
+    }
+    .vote-partyName {
+        font-size: 2rem;
+    }
+    .vote-return {
+        text-align: center;
+        margin-right: 0;
+    }
+}
+
+table {
+    border-collapse: separate;
+    width: 80%;
+    margin: 50px auto;
+    font-size: larger;
+    font-weight: bolder;
+    background-color: #f2f4f4;
+}
+
+th {
+    background-image: linear-gradient(to left top, #00b75f, #00b585, #00b1a3, #00abb6, #00a3be, #0095bd, #0086ba, #0076b4, #005ca6, #004195, #002681, #000268);
+    color: #f4f4f2;
+}
+
+td,
+th {
+    border: 2px solid #bbbfca;
+    text-align: center;
+    padding: 24px;
+}
+
+th {
+    font-family: 'Fredoka One';
+    letter-spacing: 0.1cm;
+}
+
+td {
+    font-family: 'Vollkorn';
+}
+
+.comp-regs {
+    padding: 5% 10%;
+}
+
+.comp-regs-whole {
+    margin: 5%;
+    font-family: 'Kanit';
+}
+
+.comp-btn {
+    margin-top: 2%;
+}
+
+.comp-inv-cls {
+    margin-bottom: 2%;
+}
+
+
+/* ----------------------- Discussion ----------------------- */
+
+.head-dis {
+    padding-top: 3%;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Merriweather';
+    text-shadow: 2px 2px #ffffff;
+}
+
+.dis-para {
+    text-align: left;
+    text-indent: 5%;
+}
+
+.emainame {
+    font-size: 2rem;
+    font-family: 'Anton';
+    color: black;
+}
+
+.feildset {
+    padding: 3% 2%;
+    font-family: 'Cairo';
+    font-size: 2rem;
+}
+
+.gap-dis {
+    color: #d4d4d4;
+    background-color: #00000077;
+}
+
+.whole-dis {
+    padding: 2% 1%;
+    background-color: #00a1be88;
+}
+
+.add-dis {
+    background-color: #ffffff;
+    padding: 0.5% 0.5%;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.pluse-div {
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+.dis-preview {
+    display: contents;
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.popup-model {
+    max-width: 70%!important;
+}
+
+@media screen and (max-width: 540px) {
+    .head-dis {
+        font-size: 1.7rem;
+    }
+    .emainame {
+        font-size: 1.3rem;
+    }
+    .feildset {
+        font-size: 1rem;
+    }
+    .popup-model {
+        max-width: 100%!important;
+    }
+}
+
+.contact-whole {
+    text-align: center;
+    color: #ffffff;
+    margin: 0 6.6%;
+}
+
+.cont-bg {
+    padding: 1% 1%;
+    background-color: #0000006c;
+}
+
+.setdate-div {
+    text-align: center;
+    padding-top: 2%;
+    font-family: 'Scheherazade New';
+}

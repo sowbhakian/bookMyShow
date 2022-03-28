@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital</title>
+
+
+    <!-- icons links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap links -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- bootstrap links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- BootStrap Script links -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+    <!-- bootstrap links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+</head>
+
+<body class="wholeBody" style="overflow-x: hidden;">
+
+    <!-- NavBar -->
+    <section id="Nav-bar-section">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark  navbar-whole-class ">
+            <div class="container">
+                <p class="navbar-brand text-warning"> BookMyShow</p>
+                <!-- makes the text right  -->
+                <div class="w-80 text-right ">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <!-- phone view - right  -->
+                    <div class="navbar-nav mx-auto text-right">
+                        <a href="#" class="nav-link nav-link-ltr textinnav text-warning">Home</a>
+
+                        <a href="/contact" class="nav-link nav-link-ltr textinnav text-warning">Contact</a>
+                    </div>
+                    <a href="#login">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCookie1">Login</button>
+                    </a>
+
+                    <!-- <i class="fas fa-user-tie"></i>sdfsdf -->
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!--Modal: Admin or Teacher-->
+    <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+        <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+            <!--Content-->
+            <div class="modal-content ">
+                <!--Body-->
+                <div class="modal-body LoginOptionBody">
+                    <div class="row d-flex text-center">
+
+                        <p class="pt-3 pr-2">Please Choose Your Login?
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#teacherLogin">
+                            <i class="fas fa-book ml-1"></i>TEACHER</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adminLogin">
+                            <i class="fas fa-book ml-1"></i>ADMIN</button>
+
+
+                            <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">CANCEL</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
+    <!--Modal: Teacher Login-->
+    <div class="modal fade" id="teacherLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+
+            <!--Content-->
+            <div class="modal-content">
+
+                <!--Header-->
+                <div class="modal-header light-blue darken-3 white-text">
+                    <h4 class="title"><i class="fas fa-users"></i> Staff Login</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+      aria-hidden="true">&times;</span></button>
+                </div>
+                <form action="/staffsign" method="post">
+                    <!--Body-->
+                    <div class="modal-body mb-0 text-center">
+
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="text" class="login__input" placeholder="User name" name="userName">
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="password" class="login__input" placeholder="User name" name="Password">
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+
+                            <button type="submit" class="btn btn-success">Login</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <!--/.Content-->
+
+        </div>
+    </div>
+
+    <!--Modal: Admin Login-->
+    <div class="modal fade" id="adminLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+
+            <!--Content-->
+            <div class="modal-content">
+
+                <!--Header-->
+                <div class="modal-header light-blue darken-3 white-text">
+                    <h4 class="title"><i class="fas fa-users"></i> Admin Login</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                 aria-hidden="true">&times;</span></button>
+                </div>
+                <form action="/adminsign" method="post">
+                    <!--Body-->
+                    <div class="modal-body  text-center">
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="text" class="login__input" placeholder="Admin User name" name="userId">
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="password" class="login__input" placeholder="Password" name="Password">
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+
+                            <button type="submit" class="btn btn-success">Go</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <!--/.Content-->
+
+        </div>
+    </div>
+
+
+
+    <!-- display Threater -->
+    <section>
+
+        <div class="row">
+
+            <% threater.forEach((e)=>{ %>
+                <div class="col-lg-4 indidiv">
+                    <div class="card">
+                        <h1 class="text-center">
+                            <%=e.theatreName%>
+                        </h1>
+                        <div class="card-body cardhead">
+                            <h4 class="text-center">Movie Name
+                                <p class="text-warning">
+                                    <%=e.movieName%>
+                                </p>
+                            </h4>
+                            <h4 class="text-center">certification
+                                <p class="text-warning">
+                                    <%=e.certification%>
+                                </p>
+                            </h4>
+                            <h4 class="text-center">Language
+                                <p class="text-warning">
+                                    <%=e.Lang%>
+                                </p>
+                            </h4>
+                            <h4 class="text-center">Show Time1
+                                <p class="text-warning">
+                                    <%=e.time1%>
+                                </p>
+                            </h4>
+                            <h4 class="text-center">Show Time2
+                                <p class="text-warning">
+                                    <%=e.time2%>
+                                </p>
+                            </h4>
+                            <h4 class="text-center">Show Time3
+                                <p class="text-warning">
+                                    <%=e.time3%>
+                                </p>
+                            </h4>
+
+                            <div class="bookbtn">
+                                <form action="/seateAvaible" method="post">
+                                    <input type="hidden" name="theatername" value="<%=e.theatreName%>">
+                                    <input type="hidden" name="movieName" value="<%=e.movieName%>">
+                                    <input type="hidden" name="certification" value="<%=e.certification%>">
+                                    <input type="hidden" name="Lang" value="<%=e.Lang%>">
+                                    <input type="hidden" name="time1" value="<%=e.time1%>">
+                                    <input type="hidden" name="time2" value="<%=e.time2%>">
+                                    <input type="hidden" name="time3" value="<%=e.time3%>">
+
+                                    <button type="submit" class="btn btn-primary">Book Ticket</button>
+                                </form>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <% })%>
+        </div>
+
+    </section>
+
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+
+
+
+</body>
+
+</html>

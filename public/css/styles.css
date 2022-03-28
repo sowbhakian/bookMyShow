@@ -1,0 +1,39 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+.navbar-whole-class {
+    background-image: url("https://www.transparenttextures.com/patterns/vichy.png");
+}
+
+.indidiv {
+    padding: 5% 5%;
+}
+
+.bookbtn {
+    margin-top: 5%;
+    text-align: center;
+}
+
+.cardhead {
+    background-color: black;
+    color: aliceblue;
+}
+
+.threateradddiv {
+    padding: 2% 2%;
+}
+
+.boxpadding {
+    margin-top: 5%;
+    padding: 0 5%;
+}
+
+.heading {
+    padding: 1% 2%;
+}
+
+.booking {
+    padding: 2% 20%;
+    margin-bottom: 5%;
+}

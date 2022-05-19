@@ -88,39 +88,60 @@
                                 <h3 class="text-secondary">
                                     <%=Theatre.shows[0].timing%>
                                 </h3>
-                                <%for(let i=1;i<= 50;i++){%>
-                                    <% if(i<=Theatre.shows[0].ticketsBooked){%>
 
-                                        <button type="button" class="btn btn-danger"></button>
+                                <%if(Theatre.shows[0].ticketsBooked >= 50){%>
+                                    <p>House Full!</p>
+                                    <%}else if(Theatre.shows[0].ticketsBooked >= 25){%>
+                                        <p>Almost Half Full</p>
                                         <%}else{%>
-                                            <button type="button" class="btn btn-success"></button>
+                                            <p>More available</p>
                                             <%}%>
-                                                <%}%>
+                                                <%for(let i=1;i<= 50;i++){%>
+                                                    <% if(i<=Theatre.shows[0].ticketsBooked){%>
+                                                        <button type="button" class="btn btn-danger"></button>
+                                                        <%}else{%>
+                                                            <button type="button" class="btn btn-success"></button>
+                                                            <%}%>
+                                                                <%}%>
                             </div>
                             <div class="col-lg-4">
                                 <h3 class="text-secondary">
                                     <%=Theatre.shows[1].timing%>
                                 </h3>
-                                <%for(let i=1;i<= 50;i++){%>
-                                    <% if(i<=Theatre.shows[1].ticketsBooked){%>
-
-                                        <button type="button" class="btn btn-danger"></button>
+                                <%if(Theatre.shows[1].ticketsBooked >= 50){%>
+                                    <p>House Full!</p>
+                                    <%}else if(Theatre.shows[1].ticketsBooked >= 25){%>
+                                        <p>Almost Half Full</p>
                                         <%}else{%>
-                                            <button type="button" class="btn btn-success"></button>
+                                            <p>Available</p>
                                             <%}%>
-                                                <%}%>
+                                                <%for(let i=1;i<= 50;i++){%>
+                                                    <% if(i<=Theatre.shows[1].ticketsBooked){%>
+
+                                                        <button type="button" class="btn btn-danger"></button>
+                                                        <%}else{%>
+                                                            <button type="button" class="btn btn-success"></button>
+                                                            <%}%>
+                                                                <%}%>
                             </div>
                             <div class="col-lg-4">
                                 <h3 class="text-secondary">
                                     <%=Theatre.shows[2].timing%>
                                 </h3>
-                                <%for(let i=1;i<= 50;i++){%>
-                                    <% if(i<=Theatre.shows[2].ticketsBooked){%>
-                                        <button type="button" class="btn btn-danger"></button>
+                                <%if(Theatre.shows[2].ticketsBooked >= 50){%>
+                                    <p>House Full!</p>
+                                    <%}else if(Theatre.shows[2].ticketsBooked >= 25){%>
+                                        <p>Almost Half Full</p>
                                         <%}else{%>
-                                            <button type="button" class="btn btn-success"></button>
+                                            <p>Available</p>
                                             <%}%>
-                                                <%}%>
+                                                <%for(let i=1;i<= 50;i++){%>
+                                                    <% if(i<=Theatre.shows[2].ticketsBooked){%>
+                                                        <button type="button" class="btn btn-danger"></button>
+                                                        <%}else{%>
+                                                            <button type="button" class="btn btn-success"></button>
+                                                            <%}%>
+                                                                <%}%>
                             </div>
                         </div>
                     </div>
@@ -156,14 +177,30 @@
 
                 <label class="pt-2" for="exampleForm2">Timing</label>
                 <select name="time" class="form-control pt-2">
-                    <option value="<%=Theatre.shows[0].timing%>" type="date"> <%=Theatre.shows[0].timing%></option>
-                    <option value="<%=Theatre.shows[1].timing%>" type="date"> <%=Theatre.shows[1].timing%></option>      
-                    <option value="<%=Theatre.shows[2].timing%>" type="date"> <%=Theatre.shows[2].timing%></option>
+                    <%let c=0%>
+                    <%if(Theatre.shows[0].ticketsBooked<=50){%>
+                        <option value="<%=Theatre.shows[0].timing%>" type="date"> <%=Theatre.shows[0].timing%></option>
+                        <%c=1%>
+                        <%}%>
+                        
+                        <%if(Theatre.shows[1].ticketsBooked<=50){%>
+                            <option value="<%=Theatre.shows[1].timing%>" type="date"> <%=Theatre.shows[1].timing%></option>      
+                            <%c=1%>
+                            <%}%>
+                            <%if(Theatre.shows[2].ticketsBooked<=50){%>
+                                <option value="<%=Theatre.shows[2].timing%>" type="date"> <%=Theatre.shows[2].timing%></option>
+                                <%c=1%>
+                                <%}%>
+                            <%if(c==0){%>
+                                <p>No Booking Available</p>
+                                <%}%>
             </select>
 
         </div>
         <div class="mb-5 text-center">
-            <button type="submit" class="btn btn-warning">Book</button>
+            <%if(c==1){%>
+                <button type="submit" class="btn btn-warning">Book</button>
+                <%}%>
         </div>
         <input type="hidden" name="id" value="<%=Theatre._id%>">
         </form>

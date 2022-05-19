@@ -1,10 +1,40 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const cors = require("cors");
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"));
+app.use(cors())
+
+
+
+var AWS = require("aws-sdk");
+// var uuid = require('uuid');
+
+// AWS.config.getCredentials(function(err) {
+//     // displays the accessKey
+//     if (err) console.log(err.stack);
+//     else {
+//         console.log("Access key:", AWS.config.credentials.accessKeyId);
+//     }
+// });
+
+
+
+// List the set Objects of S3
+var s3 = new AWS.S3();
+try {
+    const res = s3.listObjectsV2({
+            Bucket: "bookmyshowpresidio"
+        })
+        // console.log(res);
+
+} catch (error) {
+    console.log(error);
+}
+
 
 con = false;
 
@@ -113,7 +143,79 @@ if (con) {
 app.get("/", function(req, res) {
     Theatre.find({}, { theatreName: 1, location: 1 }, (err, output) => {
         if (!err) {
-            res.render("index", { theatres: output });
+
+
+            var b64;
+            var b642;
+            var b643;
+            var b644;
+
+            // GetObject
+            var getParams = {
+                Bucket: 'bookmyshowpresidio', // your bucket name,
+                Key: '1.jpg' // path to the object you're looking for
+            }
+
+            s3.getObject(getParams, function(err, data) {
+                // Handle any error and exit
+                if (err)
+                    return err;
+                else {
+                    b64 = Buffer.from(data.Body).toString('base64');
+                    const mimeType = 'png'; // e.g., image/png
+                    // oneOver
+
+                    var getParams2 = {
+                        Bucket: 'bookmyshowpresidio', // your bucket name,
+                        Key: '2.jpg' // path to the object you're looking for
+                    }
+                    s3.getObject(getParams2, function(err, data2) {
+                        if (err)
+                            return err;
+                        else {
+                            b642 = Buffer.from(data2.Body).toString('base64');
+                            // Two Over
+
+
+                            var getParams3 = {
+                                Bucket: 'bookmyshowpresidio', // your bucket name,
+                                Key: '3.jpg' // path to the object you're looking for
+                            }
+                            s3.getObject(getParams3, function(err, data3) {
+                                // Handle any error and exit
+                                if (err)
+                                    return err;
+                                else {
+                                    b643 = Buffer.from(data3.Body).toString('base64');
+                                    // three Over
+
+
+                                    var getParams = {
+                                        Bucket: 'bookmyshowpresidio', // your bucket name,
+                                        Key: '4.jpg' // path to the object you're looking for
+                                    }
+                                    s3.getObject(getParams, function(err, data4) {
+                                        // Handle any error and exit
+                                        if (err)
+                                            return err;
+                                        else {
+                                            const b644 = Buffer.from(data4.Body).toString('base64');
+                                            res.render("index", { theatres: output, b64: b64, b642: b642, b643: b643, mimeType: mimeType, b644: b644 });
+
+                                        }
+                                    });
+
+
+
+
+                                }
+                            });
+
+                        }
+                    });
+                }
+            });
+
         }
     });
 });
@@ -127,10 +229,12 @@ app.post("/getShows", function(req, res) {
     });
 });
 
+//Ticket Booking
 app.post("/bookTicket", function(req, res) {
 
     User.findOne({ email: req.body.email }, (err, foundUser) => {
         Theatre.findOne({ _id: req.body.id }, (err, foundTheatre) => {
+            // newTicket
             const newTicket = new Ticket({
                 name: req.body.name,
                 movieName: foundTheatre.movie,
@@ -142,15 +246,26 @@ app.post("/bookTicket", function(req, res) {
                 location: foundTheatre.location,
                 noOfTickets: req.body.number
             });
+            var errorMsg = "";
+            //Timing iteration
             for (var i in foundTheatre.shows)
-                if (foundTheatre.shows[i].timing == req.body.time) {
-                    var c = parseInt(foundTheatre.shows[i].ticketsBooked);
+                console.log(i);
+            if (foundTheatre.shows[i].timing == req.body.time) {
+                var c = parseInt(foundTheatre.shows[i].ticketsBooked);
+                if (c + parseInt(req.body.number) <= 50) {
+                    errorMsg = "Booking Done!!"
+                    console.log("Done");
                     foundTheatre.shows[i].ticketsBooked = c + parseInt(req.body.number);
+                } else {
+                    errorMsg = "Booking Over!!"
+                    foundTheatre.shows[i].ticketsBooked = c;
                 }
-                //Save the Theatre info
+            }
+            //Save the Theatre info
             foundTheatre.save().then(() => {
                 //Save the ticket info
                 newTicket.save().then(() => {
+                    // newUser
                     if (foundUser == null) {
                         const newUser = new User({
                             name: req.body.name,
@@ -159,11 +274,12 @@ app.post("/bookTicket", function(req, res) {
                         });
                         // save the userdate
                         newUser.save();
-                        res.render("confirm", { ticket: newTicket });
+                        res.render("confirm", { ticket: newTicket, errorMsg: errorMsg });
                     } else {
+                        //OldUser
                         foundUser.ticketsBooked.push(newTicket);
                         foundUser.save();
-                        res.render("confirm", { ticket: newTicket });
+                        res.render("confirm", { ticket: newTicket, errorMsg: errorMsg });
                     }
                 });
             });

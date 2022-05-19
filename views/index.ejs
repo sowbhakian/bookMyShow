@@ -70,28 +70,38 @@
     <!-- display Threater -->
     <section>
         <div class="row pb-5">
-            <%c=1%>
+            <%c=0%>
                 <% theatres.forEach((e)=>{ %>
                     <div class="col-lg-3 col-md-6 pt-5 d-flex align-items-stretch text-center">
                         <div class="card ">
-                            <img src="../pictures/<%=c++%>.jpg" height="300">
-                            <h1 class="text-center pt-5">
-                                <%=e.theatreName%>
-                            </h1>
-                            <div class="card-body cardhead">
-                                <h1 class="text-center pt-5">Location:
-                                    <p class="text-warning">
-                                        <%=e.location%>
-                                    </p>
-                                </h1>
+                            <input type="hidden" value="<%=c++%>">
+                            <%if(c==1){%>
+                                <img src="data:<%=mimeType%>;base64,<%=b642%>" height="400" width="350" />
+                                <%}else if(c==2){%>
+                                    <img src="data:<%=mimeType%>;base64,<%=b64%>" height="400" width="350" />
+                                    <%}else if(c==3){%>
+                                        <img src="data:<%=mimeType%>;base64,<%=b643%>" height="400" width="350" />
+                                        <%}else if(c==4){%>
+                                            <img src="data:<%=mimeType%>;base64,<%=b644%>" height="400" width="350" />
+                                            <%}%>
 
-                                <form action="/getShows" method="post">
-                                    <div class="text-center pt-5">
-                                        <input type="hidden" name="id" value="<%=e._id%>">
-                                        <button type="submit" class="btn btn-primary">View</button>
-                                    </div>
-                                </form>
-                            </div>
+                                                <h1 class="text-center pt-5">
+                                                    <%=e.theatreName%>
+                                                </h1>
+                                                <div class="card-body cardhead">
+                                                    <h1 class="text-center pt-5">Location:
+                                                        <p class="text-warning">
+                                                            <%=e.location%>
+                                                        </p>
+                                                    </h1>
+
+                                                    <form action="/getShows" method="post">
+                                                        <div class="text-center pt-5">
+                                                            <input type="hidden" name="id" value="<%=e._id%>">
+                                                            <button type="submit" class="btn btn-primary">View</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
                         </div>
                     </div>
                     <% if(c>=5){%>
